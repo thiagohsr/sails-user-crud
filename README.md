@@ -1,3 +1,3 @@
-# EventAgenda
+# First Crud with SailsJs
 
-a [Sails](http://sailsjs.org) application
+a magically build crud with [Sails](http://sailsjs.org) application
