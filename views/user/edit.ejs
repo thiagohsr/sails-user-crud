@@ -1,0 +1,36 @@
+<div class="container">
+	<h1>Edição de usuário</h1>
+	<div class="jumbotron">
+		<% if(flash && flash.err) { %>
+		<ul class="alert alert-danger">
+			<% Object.keys(flash.err).forEach(function(error) { %>
+			<li><%= JSON.stringify(flash.err[error]) %></li>
+			<% }); %>
+		</ul>
+		<% } %>
+		<form class="bs-form-signup" action="/user/update/<%= user.id %>" method="POST" role="form">
+		    <div class="form-group input-group-lg">
+		      <input value="<%= user.name %>" type="text" class="form-control" placeholder="Nome" name="name">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input value="<%= user.title %>" type="text" class="form-control" placeholder="Título" name="title">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input value="<%= user.email%>" type="text" class="form-control" placeholder="E-mail" name="email">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="password" class="form-control" placeholder="Senha" name="password">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="password" class="form-control" placeholder="Confirmação de senha" name="confirmation">
+		    </div>
+		    <br/>
+		    <input type="submit" value="Salvar" class="btn btn-default btn-success" role="button" />
+		    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		</form>
+	</div>
+</div>
