@@ -54,6 +54,10 @@ module.exports.routes = {
   'user/signup': {
     controller: 'UserController',
     action: 'signup'
+  },
+  'events/register': {
+    controller: 'EventsController',
+    action: 'register'
   }
   /***************************************************************************
   *                                                                          *

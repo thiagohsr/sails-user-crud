@@ -12,13 +12,11 @@ module.exports = {
   create: function(req, res, next) {
     User.create(req.params.all(), function userCreated(err, user){
       if(err){
-        console.log(err);
         req.session.flash = {
           err: err
         }
         return res.redirect('/user/signup/');
       } 
-      //res.json(user);
       res.redirect('/user/show/' + user.id);
     });
   },
@@ -42,7 +40,6 @@ module.exports = {
   },
   edit: function(req, res){
     User.findOne(req.param('id'), function editUser(err, user){
-      console.log(user, ' <> ', User);
       if(err) next(err);
 
       res.view({

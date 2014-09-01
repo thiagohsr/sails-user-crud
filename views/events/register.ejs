@@ -1,0 +1,35 @@
+<div class="container">
+	<h1>Inscrição para evento</h1>
+	<div class="jumbotron">
+		
+		<form class="bs-form-signup" action="/user/create" method="POST" role="form">
+		    <div class="form-group input-group-lg">
+		    	<select name="eventsType" class="form-control">
+		    		<option >Inscrever-se para</option>
+		    		<% _.each(eventTypes, function(eventType) { %>
+					<option value="<%= eventType.id %>"><%= eventType.name %></option>
+		    		<% }); %>
+		    	</select>
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="text" class="form-control" placeholder="Nome" name="name">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="text" class="form-control" placeholder="E-mail" name="email">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="password" class="form-control" placeholder="Senha" name="password">
+		    </div>
+		    <br/>
+		    <div class="form-group input-group-lg">
+		      <input type="password" class="form-control" placeholder="Confirmação de senha" name="confirmation">
+		    </div>
+		    <br/>
+		    <input type="submit" value="Criar conta" class="btn btn-default btn-success" href="/user/create" role="button" />
+		    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		</form>
+	</div>
+</div>

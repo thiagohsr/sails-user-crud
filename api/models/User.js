@@ -23,15 +23,15 @@ module.exports = {
     required: true,
     unique: true
    },
-   encryptedPassword: {
-    type:'string'
+   markedEvents: {
+    collection: 'Events',
+    via: 'owner'
    },
    toJSON: function(){
      var obj = this.toObject();
      delete obj.password;
      delete obj.confirmation;
      delete obj._csrf;
-     //delete obj.encryptedPassword;
      return obj;
    }
   }
